@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en-US" style="scroll-behavior: auto;">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Go Call</title>
+	<link rel="shortcut icon" href="wp-content\themes\progrisaas\images/gocall-fav.png" type="image/x-icon">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=DM%20Sans%3A400%2C400i%2C500%2C500i%2C700%2C700i%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CManrope%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpartan%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;display=swap">
+	<link rel="stylesheet"
+		href="https://progrisaas.archiwp.com/wp-content/cache/min/1/c0d63579392d97087bb526642a299e51.css" media="all"
+		data-minify="1">
+	<meta name="robots" content="noindex, nofollow">
+
+	<link rel="dns-prefetch" href="//stats.wp.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//i0.wp.com">
+	<link rel="dns-prefetch" href="//i1.wp.com">
+	<link rel="dns-prefetch" href="//i2.wp.com">
+	<link rel="dns-prefetch" href="//c0.wp.com">
+	<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+	<link rel="alternate" type="application/rss+xml" title="ProgriSaaS » Feed"
+		href="https://progrisaas.archiwp.com/feed/">
+	<link rel="alternate" type="application/rss+xml" title="ProgriSaaS » Comments Feed"
+		href="https://progrisaas.archiwp.com/comments/feed/">
+	<style type="text/css">
+		footer span.elementor-icon-list-text {
+			color: #646e93 !important;
+		}
+
+		a:after {
+			content: " " !important;
+		}
+
+		.prices {
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            border-color: #D1E0E5;
+            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+            margin: 0 15px 0 15px;
+            border-radius: 10px 10px 10px 10px;
+            padding: 15px;
+        }
+
+		span.elementor-icon-list-text {
+			color: white !important;
+		}
+
+		svg {
+			fill: white !important;
+		}
+
+		i.fas.fa-check {
+			color: white !important;
+		}
+
+		section.elementor-section.elementor-top-section.elementor-element.elementor-element-98fbf94.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default img.wp-smiley {
+			background-color: white !important;
+		}
+
+		img.emoji {
+			display: inline !important;
+			border: none !important;
+			box-shadow: none !important;
+			height: 1em !important;
+			width: 1em !important;
+			margin: 0 0.07em !important;
+			vertical-align: -0.1em !important;
+			background: none !important;
+			padding: 0 !important;
+		}
+	</style>
+
+	<style id="wp-block-library-inline-css" type="text/css">
+		.has-text-align-justify {
+			text-align: justify;
+		}
+	</style>
+
+
+
+
+	<style id="global-styles-inline-css" type="text/css">
+		body {
+			--wp--preset--color--black: #000000;
+			--wp--preset--color--cyan-bluish-gray: #abb8c3;
+			--wp--preset--color--white: #ffffff;
+			--wp--preset--color--pale-pink: #f78da7;
+			--wp--preset--color--vivid-red: #cf2e2e;
+			--wp--preset--color--luminous-vivid-orange: #ff6900;
+			--wp--preset--color--luminous-vivid-amber: #fcb900;
+			--wp--preset--color--light-green-cyan: #7bdcb5;
+			--wp--preset--color--vivid-green-cyan: #00d084;
+			--wp--preset--color--pale-cyan-blue: #8ed1fc;
+			--wp--preset--color--vivid-cyan-blue: #0693e3;
+			--wp--preset--color--vivid-purple: #9b51e0;
+			--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+			--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+			--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+			--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+			--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+			--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+			--wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+			--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+			--wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+			--wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+			--wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+			--wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+			--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
+			--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
+			--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
+			--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
+			--wp--preset--duotone--midnight: url('#wp-duotone-midnight');
+			--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
+			--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
+			--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
+			--wp--preset--font-size--small: 13px;
+			--wp--preset--font-size--medium: 20px;
+			--wp--preset--font-size--large: 36px;
+			--wp--preset--font-size--x-large: 42px;
+		}
+
+		.has-black-color {
+			color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-color {
+			color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-color {
+			color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-color {
+			color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-color {
+			color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-color {
+			color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-color {
+			color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-color {
+			color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-color {
+			color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-color {
+			color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-color {
+			color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-color {
+			color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-black-background-color {
+			background-color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-background-color {
+			background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-background-color {
+			background-color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-background-color {
+			background-color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-background-color {
+			background-color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-background-color {
+			background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-background-color {
+			background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-background-color {
+			background-color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-background-color {
+			background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-background-color {
+			background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-background-color {
+			background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-background-color {
+			background-color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-black-border-color {
+			border-color: var(--wp--preset--color--black) !important;
+		}
+
+		.has-cyan-bluish-gray-border-color {
+			border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+		}
+
+		.has-white-border-color {
+			border-color: var(--wp--preset--color--white) !important;
+		}
+
+		.has-pale-pink-border-color {
+			border-color: var(--wp--preset--color--pale-pink) !important;
+		}
+
+		.has-vivid-red-border-color {
+			border-color: var(--wp--preset--color--vivid-red) !important;
+		}
+
+		.has-luminous-vivid-orange-border-color {
+			border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-amber-border-color {
+			border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+		}
+
+		.has-light-green-cyan-border-color {
+			border-color: var(--wp--preset--color--light-green-cyan) !important;
+		}
+
+		.has-vivid-green-cyan-border-color {
+			border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+		}
+
+		.has-pale-cyan-blue-border-color {
+			border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+		}
+
+		.has-vivid-cyan-blue-border-color {
+			border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+		}
+
+		.has-vivid-purple-border-color {
+			border-color: var(--wp--preset--color--vivid-purple) !important;
+		}
+
+		.has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+			background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+		}
+
+		.has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+			background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+		}
+
+		.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+			background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+		}
+
+		.has-luminous-vivid-orange-to-vivid-red-gradient-background {
+			background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+		}
+
+		.has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+			background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+		}
+
+		.has-cool-to-warm-spectrum-gradient-background {
+			background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+		}
+
+		.has-blush-light-purple-gradient-background {
+			background: var(--wp--preset--gradient--blush-light-purple) !important;
+		}
+
+		.has-blush-bordeaux-gradient-background {
+			background: var(--wp--preset--gradient--blush-bordeaux) !important;
+		}
+
+		.has-luminous-dusk-gradient-background {
+			background: var(--wp--preset--gradient--luminous-dusk) !important;
+		}
+
+		.has-pale-ocean-gradient-background {
+			background: var(--wp--preset--gradient--pale-ocean) !important;
+		}
+
+		.has-electric-grass-gradient-background {
+			background: var(--wp--preset--gradient--electric-grass) !important;
+		}
+
+		.has-midnight-gradient-background {
+			background: var(--wp--preset--gradient--midnight) !important;
+		}
+
+		.has-small-font-size {
+			font-size: var(--wp--preset--font-size--small) !important;
+		}
+
+		.has-medium-font-size {
+			font-size: var(--wp--preset--font-size--medium) !important;
+		}
+
+		.has-large-font-size {
+			font-size: var(--wp--preset--font-size--large) !important;
+		}
+
+		.has-x-large-font-size {
+			font-size: var(--wp--preset--font-size--x-large) !important;
+		}
+	</style>
+
+
+	<style id="woocommerce-layout-inline-css" type="text/css">
+		.infinite-scroll .woocommerce-pagination {
+			display: none;
+		}
+	</style>
+	<link rel="stylesheet" id="woocommerce-smallscreen-css"
+		href="https://c0.wp.com/p/woocommerce/5.9.0/assets/css/woocommerce-smallscreen.css" type="text/css"
+		media="only screen and (max-width: 768px)">
+
+	<style id="woocommerce-inline-inline-css" type="text/css">
+		.woocommerce form .form-row .required {
+			visibility: visible;
+		}
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+	<style id="elementor-frontend-inline-css" type="text/css">
+		@font-face {
+			font-family: eicons;
+			src: url(wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);
+			src: url(wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"), url(wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"), url(wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"), url(https://progrisaas.archiwp.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"), url(https://progrisaas.archiwp.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");
+			font-weight: 400;
+			font-style: normal
+		}
+	</style>
+
+
+
+
+
+
+
+	<script type="text/javascript" src="https://c0.wp.com/c/5.9/wp-includes/js/jquery/jquery.min.js"
+		id="jquery-core-js"></script>
+
+
+
+	<script defer="" type="text/javascript" src="https://stats.wp.com/s-202204.js"
+		id="woocommerce-analytics-js"></script>
+	<link rel="https://api.w.org/" href="https://progrisaas.archiwp.com/wp-json/">
+	<link rel="alternate" type="application/json" href="https://progrisaas.archiwp.com/wp-json/wp/v2/pages/3820">
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://progrisaas.archiwp.com/xmlrpc.php?rsd">
+	<link rel="wlwmanifest" type="application/wlwmanifest+xml"
+		href="https://progrisaas.archiwp.com/wp-includes/wlwmanifest.xml">
+	<meta name="generator" content="WordPress 5.9">
+	<meta name="generator" content="WooCommerce 5.9.0">
+	<link rel="canonical" href="https://progrisaas.archiwp.com/home-12/">
+	<link rel="shortlink" href="https://progrisaas.archiwp.com/?p=3820">
+	<link rel="alternate" type="application/json+oembed"
+		href="https://progrisaas.archiwp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprogrisaas.archiwp.com%2Fhome-12%2F">
+	<link rel="alternate" type="text/xml+oembed"
+		href="https://progrisaas.archiwp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprogrisaas.archiwp.com%2Fhome-12%2F&amp;format=xml">
+	<style type="text/css">
+		img#wpstats {
+			display: none
+		}
+
+		.elementor-column.elementor-col-50.elementor-inner-column.elementor-element.elementor-element-ca801a2.ot-flex-column-vertical {
+			width: 50%;
+		}
+	</style>
+	<noscript>
+		<style>
+			.woocommerce-product-gallery {
+				opacity: 1 !important;
+			}
+		</style>
+	</noscript>
+	<script type="text/javascript">function setREVStartSize(e) {
+			//window.requestAnimationFrame(function() {				 
+			window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+			window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+			try {
+				var pw = document.getElementById(e.c).parentNode.offsetWidth,
+					newh;
+				pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+				e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+				e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+				e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+				e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+				e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+				e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+				e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+				if (e.layout === "fullscreen" || e.l === "fullscreen")
+					newh = Math.max(e.mh, window.RSIH);
+				else {
+					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+					for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+					e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+					for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+					var nl = new Array(e.rl.length),
+						ix = 0,
+						sl;
+					e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+					e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+					e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+					e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+					for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+					sl = nl[0];
+					for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+					var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+					newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+				}
+				var el = document.getElementById(e.c);
+				if (el !== null && el) el.style.height = newh + "px";
+				el = document.getElementById(e.c + "_wrapper");
+				if (el !== null && el) {
+					el.style.height = newh + "px";
+					el.style.display = "block";
+				}
+			} catch (e) {
+				console.log("Failure at Presize of Slider:" + e)
+			}
+			//});
+		};</script>
+	<style type="text/css" id="wp-custom-css">
+		@media (max-width: 1220px) {
+			.elementor-141 .elementor-element.elementor-element-3027006 a.octf-btn {
+				font-size: 14px;
+				padding: 12px 24px 12px 24px;
+			}
+
+			.main-navigation>ul>li {
+				margin: 0px 12px;
+			}
+
+			.main-navigation ul>li>a {
+				font-size: 16px;
+			}
+
+			.header-desktop a.octf-btn {
+				font-size: 14px !important;
+				padding: 12px 24px 12px 24px !important;
+			}
+		}
+
+		/**back to top**/
+
+		.page-id-1635 #back-to-top {
+			background: #FE3466;
+		}
+
+		.page-id-1899 #back-to-top {
+			background: rgb(52, 73, 227);
+		}
+
+		.page-id-2254 #back-to-top {
+			background: #EB0BE9;
+		}
+
+		.page-id-2418 #back-to-top {
+			background: #FF5E5E;
+		}
+
+		.page-id-2594 #back-to-top {
+			background: #ED27FF;
+		}
+
+		.page-id-3118 #back-to-top {
+			background: #39B14A;
+		}
+
+		.page-id-3532 #back-to-top {
+			background: #D053B4;
+		}
+
+		.page-id-3785 #back-to-top {
+			background: #EE694A;
+		}
+
+		.page-id-3820 #back-to-top {
+			background: #3639A4;
+		}
+
+		.page-id-4260 #back-to-top {
+			background: #FF7241;
+		}
+
+		.page-id-4516 #back-to-top {
+			background: #4316C4;
+		}
+
+		.page-id-4770 #back-to-top {
+			background: #FF561E;
+		}
+
+		.page-id-3320 #back-to-top {
+			color: #181B2A;
+			background: #11F9D7;
+		}
+
+		.page-id-7802 #back-to-top {
+			background: #FFB540;
+		}
+
+		.page #back-to-top:hover {
+			background: #2E2E4D;
+			color: #fff;
+		}
+
+		/**mailchimp**/
+		.security-software .mc4wp-form-fields .main-form input[type=email],
+		.security-software .mc4wp-form-fields .main-form input[type=submit] {
+			font-family: "Manrope"
+		}
+	</style>
+	<style id="kirki-inline-styles">
+		.page-header {
+			background-image: url("https://progrisaas.archiwp.com/wp-content/uploads/2021/06/pheader-default.jpg");
+		}
+
+		#royal_preloader.royal_preloader_logo .royal_preloader_percentage {
+			font-family: DM Sans;
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 2px;
+			line-height: 40px;
+			text-align: center;
+			text-transform: none;
+		}
+
+		@media (max-width: 767px) {}
+
+		@media (min-width: 768px) and (max-width: 1024px) {}
+
+		@media (min-width: 1024px) {}
+
+		/* latin-ext */
+		@font-face {
+			font-family: 'DM Sans';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url(https://progrisaas.archiwp.com/wp-content/fonts/dm-sans/rP2Hp2ywxg089UriCZ2IGzWEBlwu8Q.woff) format('woff');
+			unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+
+		/* latin */
+		@font-face {
+			font-family: 'DM Sans';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: url(https://progrisaas.archiwp.com/wp-content/fonts/dm-sans/rP2Hp2ywxg089UriCZOIGzWEBlw.woff) format('woff');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+	</style>
+</head>
+
+<body
+	class="page-template-default page page-id-3820 theme-progrisaas woocommerce-js woocommerce-active elementor-default elementor-kit-7 elementor-page elementor-page-3820 progrisaas-theme-ver-1.0 wordpress-version-5.9 e--ua-blink e--ua-chrome e--ua-webkit"
+	data-elementor-device-mode="desktop">
+
+	<div id="page" class="site">
+
+		<!-- #site-header-open -->
+		<header id="site-header" class="site-header header-transparent">
+
+			<!-- #header-desktop-open -->
+			<div class="header-desktop">
+				<div data-elementor-type="wp-post" data-elementor-id="3870" class="elementor elementor-3870"
+					data-elementor-settings="[]">
+					<div class="elementor-section-wrap">
+						<section
+							class="elementor-section elementor-top-section elementor-element elementor-element-76f5074c elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+							data-id="76f5074c" data-element_type="section"
+							data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-container elementor-column-gap-no">
+								<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-52c99108 ot-column-items-center ot-flex-column-vertical"
+									data-id="52c99108" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-17079caa elementor-widget elementor-widget-ilogo"
+											data-id="17079caa" data-element_type="widget"
+											data-widget_type="ilogo.default">
+											<div class="elementor-widget-container">
+
+												<div class="the-logo">
+													<a href="https://progrisaas.archiwp.com/">
+														<img src="wp-content\themes\progrisaas\images/gocall-light.png"
+															alt="">
+													</a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-34d6a6e7 ot-flex-column-vertical"
+									data-id="34d6a6e7" data-element_type="column" style="width: 100% !important;">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-2a2dc0b3 elementor-widget elementor-widget-imenu"
+											data-id="2a2dc0b3" data-element_type="widget"
+											data-widget_type="imenu.default" style="text-align: right !important;">
+											<div class="elementor-widget-container">
+
+												<nav id="site-navigation" class="main-navigation">
+													<ul id="primary-menu" class="menu">
+														<li
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-8515 active dropdown is-mega-menu dropdown is-mega-menu">
+															<a href="home.html" class="dropdown-toggle" role="button"
+																data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false" data-ps2id-api="true">Home</a>
+														</li>
+														<li
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5212 dropdown hasmenu">
+															<a href="#services" class="dropdown-toggle" role="button"
+																data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false" data-ps2id-api="true">Services</a>
+														</li>
+														<li
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-151 dropdown hasmenu">
+															<a href="#features" class="dropdown-toggle" role="button"
+																data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false" data-ps2id-api="true">Features</a>
+														</li>
+														<li
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5226 dropdown hasmenu">
+															<a href="#pricing" class="dropdown-toggle" role="button"
+																data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false" data-ps2id-api="true">Pricing</a>
+														</li>
+														<li
+															class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1569">
+															<a href="#site-footer" data-ps2id-api="true">Contacts</a>
+														</li>
+													</ul>
+												</nav>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</section>
+					</div>
+				</div>
+			</div> <!-- #header-desktop-close -->
+
+			<!-- #header-mobile-open -->
+			<div class="header-mobile">
+				<div data-elementor-type="wp-post" data-elementor-id="6094" class="elementor elementor-6094"
+					data-elementor-settings="[]">
+					<div class="elementor-section-wrap">
+						<section
+							class="elementor-section elementor-top-section elementor-element elementor-element-99b8323 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+							data-id="99b8323" data-element_type="section">
+							<div class="elementor-container elementor-column-gap-extended">
+								<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-a3396a3 ot-flex-column-vertical"
+									data-id="a3396a3" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-6cb4fca elementor-widget elementor-widget-ilogo"
+											data-id="6cb4fca" data-element_type="widget"
+											data-widget_type="ilogo.default">
+											<div class="elementor-widget-container">
+
+												<div class="the-logo">
+													<a href="https://progrisaas.archiwp.com/">
+														<img src="https://progrisaas.s3-ap-southeast-1.amazonaws.com/images/logo-home-12.svg"
+															alt="ProgriSaaS">
+													</a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-d7fa823 ot-flex-column-horizontal"
+									data-id="d7fa823" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-8cf1ba6 elementor-widget elementor-widget-isearch"
+											data-id="8cf1ba6" data-element_type="widget"
+											data-widget_type="isearch.default">
+											<div class="elementor-widget-container">
+
+												<div class="octf-search octf-cta-header">
+													<div class="toggle_search octf-cta-icons">
+														<i class="ot-flaticon-magnifiying-glass"></i>
+													</div>
+													<!-- Form Search on Header -->
+													<div class="h-search-form-field">
+														<div class="search-overlay"></div>
+														<div class="h-search-form-inner">
+															<i class="ot-flaticon-close"></i>
+															<div class="container">
+																<form role="search" method="get" class="search-form"
+																	action="https://progrisaas.archiwp.com/">
+																	<label>
+																		<span class="pre-text">What are you looking
+																			for?</span> <input type="search"
+																			class="search-field"
+																			placeholder="Enter keyword..." value=""
+																			name="s">
+																	</label>
+																	<button type="submit" class="search-submit"><i
+																			class="ot-flaticon-magnifiying-glass"></i></button>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-2ad0f6e elementor-widget elementor-widget-imenu_mobile"
+											data-id="2ad0f6e" data-element_type="widget"
+											data-widget_type="imenu_mobile.default">
+											<div class="elementor-widget-container">
+
+												<div class="octf-menu-mobile octf-cta-header">
+													<div id="mmenu-toggle" class="mmenu-toggle">
+														<button><i class="ot-flaticon-menu-of-three-lines"></i></button>
+													</div>
+													<div class="site-overlay mmenu-overlay"></div>
+													<div id="mmenu-wrapper" class="mmenu-wrapper on-right">
+														<div class="mmenu-inner">
+															<a class="mmenu-close" href="#"><i
+																	class="ot-flaticon-right-arrow"></i></a>
+															<div class="mobile-nav">
+																<ul id="menu-main-menu"
+																	class="mobile_mainmenu none-style">
+																	<li id="menu-item-8515"
+																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-8515">
+																		<span class="arrow">+</span>
+																		<span class="arrow">+</span><a href="home.html"
+																			data-ps2id-api="true">Home</a>
+																	</li>
+																	<li id="menu-item-5212"
+																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5212">
+																		<span class="arrow">+</span>
+																		<span class="arrow">+</span><a href="#services"
+																			data-ps2id-api="true">Services</a>
+																	</li>
+																	<li id="menu-item-151"
+																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-151">
+																		<span class="arrow">+</span>
+																		<span class="arrow">+</span><a href="#features"
+																			data-ps2id-api="true">Features</a>
+																	</li>
+																	<li id="menu-item-5226"
+																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5226">
+																		<span class="arrow">+</span>
+																		<span class="arrow">+</span><a href="#pricing"
+																			data-ps2id-api="true">Pricing</a>
+																	</li>
+																	<li id="menu-item-1569"
+																		class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1569">
+																		<a href="#site-footer"
+																			data-ps2id-api="true">Contacts</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div> <!-- #header-mobile-close -->
+
+		</header>
+		<!-- #site-header-close -->
+		<!-- #side-panel-open -->
+		<div id="side-panel" class="side-panel ">
+			<a href="#" class="side-panel-close"><i class="ot-flaticon-close"></i></a>
+			<div class="side-panel-block">
+				<div data-elementor-type="wp-post" data-elementor-id="6963" class="elementor elementor-6963"
+					data-elementor-settings="[]">
+					<div class="elementor-section-wrap">
+						<section
+							class="elementor-section elementor-top-section elementor-element elementor-element-81a8e69 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+							data-id="81a8e69" data-element_type="section">
+							<div class="elementor-container elementor-column-gap-default">
+								<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5cb0d64 ot-flex-column-vertical"
+									data-id="5cb0d64" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-af02a4e elementor-widget elementor-widget-ilogo"
+											data-id="af02a4e" data-element_type="widget"
+											data-widget_type="ilogo.default">
+											<div class="elementor-widget-container">
+
+												<div class="the-logo">
+													<a href="https://progrisaas.archiwp.com/">
+														<img src="https://progrisaas.s3-ap-southeast-1.amazonaws.com/images/logo-footer-home13.svg"
+															alt="ProgriSaaS">
+													</a>
+												</div>
+
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-c574e44 elementor-widget elementor-widget-heading"
+											data-id="c574e44" data-element_type="widget"
+											data-widget_type="heading.default">
+											<div class="elementor-widget-container">
+												<h2 class="elementor-heading-title elementor-size-default">Contact Us:
+												</h2>
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-9946efb elementor-widget elementor-widget-text-editor"
+											data-id="9946efb" data-element_type="widget"
+											data-widget_type="text-editor.default">
+											<div class="elementor-widget-container">
+												<p>670 Lafayette Ave, Brooklyn,<br>NY 11216</p>
+												<p>+1 800 966 4564<br>+1 800 9667 4558</p>
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-ce5d084 elementor-widget elementor-widget-ititlelink"
+											data-id="ce5d084" data-element_type="widget"
+											data-widget_type="ititlelink.default">
+											<div class="elementor-widget-container">
+												<div class="ot-title-link">
+													<h5><a href="#" class="title-link">email@example.com</a></h5>
+												</div>
+											</div>
+										</div>
+										<div class="elementor-element elementor-element-f162e06 e-grid-align-left elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons"
+											data-id="f162e06" data-element_type="widget"
+											data-widget_type="social-icons.default">
+											<div class="elementor-widget-container">
+												<div class="elementor-social-icons-wrapper elementor-grid">
+													<span class="elementor-grid-item">
+														<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-100af35"
+															href="#" target="_blank">
+															<span class="elementor-screen-only">Facebook-f</span>
+															<i class="fab fa-facebook-f"></i> </a>
+													</span>
+													<span class="elementor-grid-item">
+														<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-238d8cc"
+															href="#" target="_blank">
+															<span class="elementor-screen-only">Instagram</span>
+															<i class="fab fa-instagram"></i> </a>
+													</span>
+													<span class="elementor-grid-item">
+														<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-e4ab47a"
+															href="#" target="_blank">
+															<span class="elementor-screen-only">Linkedin-in</span>
+															<i class="fab fa-linkedin-in"></i> </a>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- #side-panel-close -->
+		<!-- #site-content-open -->
+		<div id="content" class="site-content">
+
+			<div data-elementor-type="wp-page" data-elementor-id="3820" class="elementor elementor-3820"
+				data-elementor-settings="[]">
+				<div class="elementor-section-wrap">
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-8504299 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="8504299" data-element_type="section"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-background-overlay"></div>
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ee9530e ot-flex-column-vertical"
+								data-id="ee9530e" data-element_type="column">
+								<div class="elementor-widget-wrap">
+								</div>
+							</div>
+							<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-95ffe53 ot-flex-column-vertical"
+								data-id="95ffe53" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-1cc018e elementor-widget elementor-widget-heading"
+										data-id="1cc018e" data-element_type="widget" data-widget_type="heading.default">
+										<div class="elementor-widget-container">
+											<h2 class="elementor-heading-title elementor-size-default">Scale Your
+												Business by Analyzing Every Step</h2>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-4b3166b elementor-widget elementor-widget-text-editor"
+										data-id="4b3166b" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<p style="text-align: center;">We help to increase your productivity to
+												improve your business by analyzing the work.</p>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-fd08e9b elementor-align-center elementor-widget elementor-widget-ibutton"
+										data-id="fd08e9b" data-element_type="widget" data-widget_type="ibutton.default">
+										<div class="elementor-widget-container">
+											<div class="ot-button">
+												<a href="#pricing" class="octf-btn octf-btn-main">Start Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6e2c303 ot-flex-column-vertical"
+								data-id="6e2c303" data-element_type="column">
+								<div class="elementor-widget-wrap">
+								</div>
+							</div>
+						</div>
+					</section>
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-7c43306 elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+						data-id="7c43306" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e0da40 ot-flex-column-vertical"
+								data-id="6e0da40" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-a10dcfd ot-image-animation1 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="a10dcfd" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i1.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cblue.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-c3e0902 ot-image-animation2 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="c3e0902" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cred.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-7a5ad67 ot-image-animation5 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="7a5ad67" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-69d15d5 ot-image-animation3 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="69d15d5" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-6465d6e elementor-widget elementor-widget-image"
+										data-id="6465d6e" data-element_type="widget" data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="1521" height="585"
+												src="wp-content/themes/progrisaas/images/home12-img-1.png?fit=1521%2C585&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy"
+												srcset="wp-content/themes/progrisaas/images/home12-img-1.png?w=1521&amp;ssl=1 1521w, wp-content/themes/progrisaas/images/home12-img-1.png?resize=600%2C231&amp;ssl=1 600w, wp-content/themes/progrisaas/images/home12-img-1.png?resize=300%2C115&amp;ssl=1 300w, wp-content/themes/progrisaas/images/home12-img-1.png?resize=1024%2C394&amp;ssl=1 1024w, wp-content/themes/progrisaas/images/home12-img-1.png?resize=768%2C295&amp;ssl=1 768w"
+												sizes="(max-width: 1000px) 100vw, 1000px">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-ae3cd92 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="ae3cd92" data-element_type="section" id="services">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fd21e58 ot-flex-column-vertical"
+								data-id="fd21e58" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-8f15e5b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="8f15e5b" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-default">
+											<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5bce445 ot-flex-column-vertical"
+												data-id="5bce445" data-element_type="column">
+												<div class="elementor-widget-wrap">
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9ec8bef ot-flex-column-vertical"
+												data-id="9ec8bef" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-1c2c887 ssub-yes elementor-widget elementor-widget-iheading"
+														data-id="1c2c887" data-element_type="widget"
+														data-widget_type="iheading.default">
+														<div class="elementor-widget-container">
+															<div class="ot-heading">
+																<h2 class="ot-heading__title">Why Choose Us</h2>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-d3f2bb3 elementor-widget elementor-widget-text-editor"
+														data-id="d3f2bb3" data-element_type="widget"
+														data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-b8016ad ot-flex-column-vertical"
+												data-id="b8016ad" data-element_type="column">
+												<div class="elementor-widget-wrap">
+												</div>
+											</div>
+										</div>
+									</section>
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-6e6bbdf elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="6e6bbdf" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-default">
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-53cf5bd ot-flex-column-vertical"
+												data-id="53cf5bd" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-d3a1b09 ot-view-default ot-position-top elementor-widget elementor-widget-iiconbox"
+														data-id="d3a1b09" data-element_type="widget"
+														data-widget_type="iiconbox.default">
+														<div class="elementor-widget-container">
+															<div class="ot-icon-box">
+																<div class="ot-icon-box__icon">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		viewBox="0 0 512 512" fill="none">
+																		<path
+																			d="M190.735 497.763C280.306 457.102 362.895 475.591 406.059 456.007C449.224 436.409 528.612 370.446 438.486 171.875C348.36 -26.6952 213.192 -0.497876 165.704 21.0488C-56.6182 121.955 32.0858 569.771 190.735 497.763V497.763Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M356.523 90.3682H384.968V104.59H356.523V90.3682Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M438.301 90.3682H466.745V104.59H438.301V90.3682Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M402.746 44.1455H416.968V72.59H402.746V44.1455Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M401.778 152.889H110.222C102.4 152.889 96 159.289 96 167.111V323.555V359.111C96 366.933 102.4 373.333 110.222 373.333H401.778C409.6 373.333 416 366.933 416 359.111V323.555V167.111C416 159.289 409.6 152.889 401.778 152.889Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M128 359.111V323.555V167.111C128 159.289 134.4 152.889 142.222 152.889H110.222C102.4 152.889 96 159.289 96 167.111V323.555V359.111C96 366.933 102.4 373.333 110.222 373.333H142.222C134.4 373.333 128 366.933 128 359.111Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M230.826 373.333C230.826 373.333 227.555 398.222 209.777 416H301.937C284.373 398.435 280.888 373.333 280.888 373.333H230.826Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M256 259.556C301.165 259.556 337.778 222.942 337.778 177.778C337.778 132.613 301.165 96 256 96C210.836 96 174.223 132.613 174.223 177.778C174.223 222.942 210.836 259.556 256 259.556Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M206.223 177.778C206.223 138.098 234.496 105.031 272 97.5929C266.824 96.5547 261.476 96 256 96C210.831 96 174.223 132.608 174.223 177.778C174.223 222.948 210.831 259.556 256 259.556C261.476 259.556 266.824 259.001 272 257.963C234.496 250.524 206.223 217.458 206.223 177.778V177.778Z"
+																			fill="#6CD5DC"></path>
+																		<path
+																			d="M255.999 270.222C205.027 270.222 163.555 228.75 163.555 177.777C163.555 126.805 205.027 85.333 255.999 85.333C306.972 85.333 348.444 126.805 348.444 177.777C348.444 228.75 306.972 270.222 255.999 270.222ZM255.999 106.666C216.788 106.666 184.888 138.567 184.888 177.777C184.888 216.988 216.788 248.889 255.999 248.889C295.21 248.889 327.11 216.988 327.11 177.777C327.11 138.567 295.21 106.666 255.999 106.666Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M273.352 210.219L248.463 185.33C246.458 183.325 245.334 180.623 245.334 177.792V138.667H266.667V173.355L288.427 195.115L273.352 210.219Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M401.778 384H110.223C96.4984 384 85.334 372.836 85.334 359.112V167.112C85.334 153.387 96.4984 142.223 110.223 142.223H135.112V163.556H110.223C108.26 163.556 106.667 165.149 106.667 167.112V359.112C106.667 361.074 108.26 362.667 110.223 362.667H401.778C403.741 362.667 405.334 361.074 405.334 359.112V167.112C405.334 165.149 403.741 163.556 401.778 163.556H380.445V142.223H401.778C415.503 142.223 426.667 153.387 426.667 167.112V359.112C426.667 372.836 415.503 384 401.778 384Z"
+																			fill="#3639A4"></path>
+																		<path d="M96 312.889H416V334.222H96V312.889Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M302.222 426.667H209.777C205.468 426.667 201.571 424.064 199.921 420.082C198.271 416.099 199.182 411.506 202.239 408.462C217.045 393.657 220.23 372.153 220.259 371.954L241.407 374.727C241.294 375.566 239.317 389.888 230.826 405.333H280.931C272.526 389.973 270.435 375.637 270.321 374.812L291.441 371.84C291.47 372.053 294.598 392.576 308.28 407.225C311.068 409.159 312.888 412.359 312.888 416C312.888 421.888 308.11 426.667 302.222 426.667V426.667Z"
+																			fill="#3639A4"></path>
+																	</svg>
+																</div>
+																<div class="ot-icon-box__content">
+																	<h5 class="icon-box-title"><a href="#">PRN
+																			Numbers</a></h5>
+																	<div class="icon-box-des">Make sure you only speak
+																		to top-quality leads. Don't waste time on busy
+																		lines.</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-037a947 ot-flex-column-vertical"
+												data-id="037a947" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-16d20ed ot-view-default ot-position-top elementor-widget elementor-widget-iiconbox"
+														data-id="16d20ed" data-element_type="widget"
+														data-widget_type="iiconbox.default">
+														<div class="elementor-widget-container">
+															<div class="ot-icon-box">
+																<div class="ot-icon-box__icon">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		viewBox="0 0 512 512" fill="none">
+																		<path
+																			d="M389.931 55.6661C291.584 57.5008 223.076 7.80836 175.687 8.70436C128.299 9.60036 29.2555 38.699 33.3372 256.74C37.419 474.781 171.919 504.264 224.057 503.296C468.153 498.731 564.125 52.4092 389.931 55.6661V55.6661Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M216.889 359.111H124.444C108.8 359.111 96 346.311 96 330.667V152.889C96 137.244 108.8 124.444 124.444 124.444H167.111H259.556H302.222C317.867 124.444 330.667 137.244 330.667 152.889V202.667V359.111H216.889Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M128 330.667V152.889C128 137.244 140.8 124.444 156.444 124.444H124.444C108.8 124.444 96 137.244 96 152.889V330.667C96 346.311 108.8 359.111 124.444 359.111H156.444C140.8 359.111 128 346.311 128 330.667Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M245.334 145.778H181.334C173.483 145.778 167.111 139.406 167.111 131.556V110.222C167.111 102.372 173.483 96 181.334 96H245.334C253.184 96 259.556 102.372 259.556 110.222V131.556C259.556 139.406 253.184 145.778 245.334 145.778Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M387.555 416H295.11C279.395 416 266.666 403.271 266.666 387.555V280.889C266.666 265.173 279.395 252.444 295.11 252.444H387.555C403.27 252.444 415.999 265.173 415.999 280.889V387.555C415.999 403.271 403.27 416 387.555 416Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M199.111 131.556V110.222C199.111 102.372 205.483 96 213.334 96H181.334C173.483 96 167.111 102.372 167.111 110.222V131.556C167.111 139.406 173.483 145.778 181.334 145.778H213.334C205.483 145.778 199.111 139.406 199.111 131.556Z"
+																			fill="#6CD5DC"></path>
+																		<path
+																			d="M298.666 387.555V280.889C298.666 265.173 311.395 252.444 327.11 252.444H295.11C279.395 252.444 266.666 265.173 266.666 280.889V387.555C266.666 403.271 279.395 416 295.11 416H327.11C311.395 416 298.666 403.271 298.666 387.555Z"
+																			fill="#6CD5DC"></path>
+																		<path d="M442.666 96H471.11V110.222H442.666V96Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M360.889 96H389.333V110.222H360.889V96Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M410.666 46.2227H424.888V74.6671H410.666V46.2227Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M410.666 128H424.888V156.444H410.666V128Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M85.3333 92.445C73.5716 92.445 64 82.8734 64 71.1117C64 59.3499 73.5716 49.7783 85.3333 49.7783C97.0951 49.7783 106.667 59.3499 106.667 71.1117C106.667 82.8734 97.0951 92.445 85.3333 92.445ZM85.3333 64.0005C81.408 64.0005 78.2222 67.1863 78.2222 71.1117C78.2222 75.037 81.408 78.2228 85.3333 78.2228C89.2587 78.2228 92.4444 75.037 92.4444 71.1117C92.4444 67.1863 89.2587 64.0005 85.3333 64.0005Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M216.89 369.777H124.445C102.87 369.777 85.334 352.241 85.334 330.666V152.888C85.334 131.313 102.87 113.777 124.445 113.777H167.112V135.111H124.445C114.646 135.111 106.667 143.089 106.667 152.888V330.666C106.667 340.465 114.646 348.444 124.445 348.444H216.89V369.777Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M341.332 202.666H319.999V152.888C319.999 143.089 312.02 135.111 302.221 135.111H259.555V113.777H302.221C323.796 113.777 341.332 131.313 341.332 152.888V202.666Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M245.334 156.444H181.334C167.61 156.444 156.445 145.28 156.445 131.555V110.222C156.445 96.4975 167.61 85.333 181.334 85.333H245.334C259.059 85.333 270.223 96.4975 270.223 110.222V131.555C270.223 145.28 259.059 156.444 245.334 156.444ZM181.334 106.666C179.372 106.666 177.779 108.259 177.779 110.222V131.555C177.779 133.518 179.372 135.111 181.334 135.111H245.334C247.297 135.111 248.89 133.518 248.89 131.555V110.222C248.89 108.259 247.297 106.666 245.334 106.666H181.334Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M387.556 426.666H295.111C273.536 426.666 256 409.13 256 387.555V280.888C256 259.313 273.536 241.777 295.111 241.777H387.556C409.131 241.777 426.667 259.313 426.667 280.888V387.555C426.667 409.13 409.131 426.666 387.556 426.666ZM295.111 263.111C285.312 263.111 277.333 271.089 277.333 280.888V387.555C277.333 397.354 285.312 405.333 295.111 405.333H387.556C397.355 405.333 405.333 397.354 405.333 387.555V280.888C405.333 271.089 397.355 263.111 387.556 263.111H295.111Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M309.334 280.889H373.334V302.222H309.334V280.889Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M309.334 323.556H373.334V344.889H309.334V323.556Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M309.334 366.223H373.334V387.556H309.334V366.223Z"
+																			fill="#3639A4"></path>
+																	</svg>
+																</div>
+																<div class="ot-icon-box__content">
+																	<h5 class="icon-box-title"><a href="#">Collect
+																			Call</a></h5>
+																	<div class="icon-box-des">Make sure you only speak
+																		to top-quality leads. Don't waste time on busy
+																		lines.</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-60177d6 ot-flex-column-vertical"
+												data-id="60177d6" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-9bf1783 ot-view-default ot-position-top elementor-widget elementor-widget-iiconbox"
+														data-id="9bf1783" data-element_type="widget"
+														data-widget_type="iiconbox.default">
+														<div class="elementor-widget-container">
+															<div class="ot-icon-box">
+																<div class="ot-icon-box__icon">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		viewBox="0 0 512 512" fill="none">
+																		<path
+																			d="M389.931 55.6661C291.584 57.5008 223.076 7.80836 175.687 8.70436C128.299 9.60036 29.2555 38.699 33.3372 256.74C37.419 474.781 171.919 504.264 224.057 503.296C468.153 498.731 564.125 52.4092 389.931 55.6661V55.6661Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M58.0547 65.6123L68.1113 55.5557L88.2246 75.6689L78.1679 85.7256L58.0547 65.6123Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M55.5449 133.492L75.6582 113.379L85.7148 123.436L65.6016 143.549L55.5449 133.492Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M113.357 75.6738L133.471 55.5606L143.527 65.6172L123.414 85.7305L113.357 75.6738Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M256 416C344.366 416 416 344.366 416 256C416 167.634 344.366 96 256 96C167.634 96 96 167.634 96 256C96 344.366 167.634 416 256 416Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M128 256C128 173.042 191.147 104.832 272 96.8107C266.738 96.2844 261.404 96 256 96C167.637 96 96 167.637 96 256C96 344.363 167.637 416 256 416C261.404 416 266.738 415.716 272 415.189C191.147 407.168 128 338.958 128 256Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M373.333 256H255.999V138.667C191.26 138.667 138.666 191.261 138.666 256C138.666 320.74 191.26 373.334 255.999 373.334C320.739 373.334 373.333 320.74 373.333 256Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M170.666 256C170.666 202.368 206.805 157.17 255.999 143.204V138.667C191.26 138.667 138.666 191.261 138.666 256C138.666 320.74 191.26 373.334 255.999 373.334C261.446 373.334 266.751 372.836 271.999 372.111C214.826 364.274 170.666 315.293 170.666 256Z"
+																			fill="#6CD5DC"></path>
+																		<path
+																			d="M256.001 426.666C161.892 426.666 85.334 350.108 85.334 256C85.334 161.891 161.892 85.333 256.001 85.333C350.109 85.333 426.667 161.891 426.667 256C426.667 350.108 350.109 426.666 256.001 426.666ZM256.001 106.666C173.654 106.666 106.667 173.653 106.667 256C106.667 338.346 173.654 405.333 256.001 405.333C338.347 405.333 405.334 338.346 405.334 256C405.334 173.653 338.347 106.666 256.001 106.666Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M256 384C185.429 384 128 326.571 128 256C128 185.429 185.429 128 256 128C261.888 128 266.667 132.779 266.667 138.667V245.333H373.333C379.221 245.333 384 250.112 384 256C384 326.585 326.585 384 256 384ZM245.333 149.86C191.502 155.236 149.333 200.789 149.333 256C149.333 314.823 197.177 362.667 256 362.667C311.211 362.667 356.764 320.498 362.14 266.667H256C250.112 266.667 245.333 261.888 245.333 256V149.86Z"
+																			fill="#3639A4"></path>
+																	</svg>
+																</div>
+																<div class="ot-icon-box__content">
+																	<h5 class="icon-box-title"><a href="#">Outbound
+																			Calls</a></h5>
+																	<div class="icon-box-des">Make sure you only speak
+																		to top-quality leads. Don't waste time on busy
+																		lines.</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-9320d35 ot-flex-column-vertical"
+												data-id="9320d35" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-7d0866f ot-view-default ot-position-top elementor-widget elementor-widget-iiconbox"
+														data-id="7d0866f" data-element_type="widget"
+														data-widget_type="iiconbox.default">
+														<div class="elementor-widget-container">
+															<div class="ot-icon-box">
+																<div class="ot-icon-box__icon">
+																	<svg xmlns="http://www.w3.org/2000/svg"
+																		viewBox="0 0 512 512" fill="none">
+																		<path
+																			d="M119.14 59.2639C217.516 59.2639 285.071 8.30566 332.474 8.30566C379.876 8.30566 479.432 35.5554 479.432 253.625C479.432 471.694 345.501 503.694 293.363 503.694C49.2097 503.708 -55.0818 59.2639 119.14 59.2639V59.2639Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M405.007 317.909L384.143 354.076C376.491 367.431 359.382 371.883 346.155 364.231L325.007 351.986C318.749 356.58 311.923 360.476 304.698 363.676V388.167C304.698 403.47 292.182 416 276.865 416H235.123C219.819 416 207.29 403.484 207.29 388.167V363.676C200.051 360.476 193.238 356.58 186.98 351.986L165.832 364.231C152.619 371.883 135.496 367.431 127.844 354.076L106.98 317.909C99.3287 304.555 103.923 287.573 117.135 279.922L138.283 267.676C137.871 263.78 137.871 248.192 138.283 244.295L117.135 232.05C103.923 224.398 99.3287 207.417 106.98 194.062L127.844 157.895C135.496 144.54 152.605 140.089 165.832 147.74L186.98 159.986C193.238 155.392 200.065 151.495 207.29 148.295V123.833C207.29 108.53 219.805 96 235.123 96H276.865C292.168 96 304.698 108.516 304.698 123.833V148.324C311.937 151.524 318.749 155.42 325.007 160.014L346.155 147.769C359.368 140.117 376.491 144.569 384.143 157.924L405.007 194.091C412.659 207.445 408.065 224.427 394.852 232.078L373.704 244.324C374.116 248.22 374.259 252.117 374.259 256.014C374.259 259.911 374.116 263.808 373.704 267.705L394.852 279.95C408.065 287.588 412.659 304.555 405.007 317.909V317.909Z"
+																			fill="#E9FDFF"></path>
+																		<path
+																			d="M218.995 160C225.253 155.406 232.08 151.509 239.304 148.309V123.819C239.304 108.516 251.82 96 267.123 96H235.123C219.82 96 207.304 108.516 207.304 123.819V148.309C205.74 148.992 204.289 149.845 202.768 150.599L218.995 160Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M159.859 354.091L138.995 317.923C131.343 304.569 135.937 287.587 149.149 279.936L170.298 267.691C169.885 263.794 169.885 248.206 170.298 244.309L149.149 232.064C135.937 224.412 131.343 207.431 138.995 194.076L159.859 157.909C161.963 154.24 164.822 151.31 168.079 149.049L165.832 147.755C152.619 140.103 135.496 144.555 127.844 157.909L106.98 194.076C99.3287 207.431 103.923 224.412 117.135 232.064L138.283 244.309C137.871 248.206 137.871 263.794 138.283 267.691L117.135 279.936C103.923 287.587 99.3287 304.569 106.98 317.923L127.844 354.091C135.496 367.445 152.605 371.897 165.832 364.245L168.079 362.951C164.822 360.69 161.963 357.76 159.859 354.091Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M239.304 388.167V363.676C232.065 360.476 225.253 356.579 218.995 351.985L202.768 361.372C204.289 362.126 205.74 362.979 207.304 363.662V388.152C207.304 403.456 219.82 415.985 235.123 415.985H267.123C251.834 416 239.304 403.484 239.304 388.167V388.167Z"
+																			fill="#E0F5F8"></path>
+																		<path
+																			d="M256.001 330.666C297.238 330.666 330.667 297.237 330.667 256C330.667 214.762 297.238 181.333 256.001 181.333C214.763 181.333 181.334 214.762 181.334 256C181.334 297.237 214.763 330.666 256.001 330.666Z"
+																			fill="#75E8F0"></path>
+																		<path
+																			d="M213.334 256C213.334 220.273 238.465 190.478 272.001 183.139C266.838 182.016 261.505 181.333 256.001 181.333C214.77 181.333 181.334 214.755 181.334 256C181.334 297.23 214.77 330.666 256.001 330.666C261.505 330.666 266.838 329.984 272.001 328.846C238.465 321.521 213.334 291.726 213.334 256Z"
+																			fill="#6CD5DC"></path>
+																		<path
+																			d="M422.492 81.9297L442.605 61.8164L452.662 71.8731L432.549 91.9863L422.492 81.9297Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M364.678 69.3408L374.734 59.2842L394.848 79.3974L384.791 89.4541L364.678 69.3408Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M422.553 127.311L432.609 117.254L452.723 137.367L442.666 147.424L422.553 127.311Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M276.863 426.666H235.121C213.901 426.666 196.621 409.386 196.621 388.167V370.417C193.123 368.625 189.752 366.677 186.495 364.601L171.178 373.475C162.246 378.638 151.807 379.989 141.866 377.315C131.939 374.641 123.676 368.284 118.584 359.395L97.7343 323.242C87.1814 304.839 93.496 281.287 111.772 270.705L127.373 261.689C127.302 258.09 127.302 253.909 127.373 250.311L111.8 241.308C93.5245 230.727 87.2098 207.175 97.7485 188.785L118.627 152.576C123.704 143.715 131.967 137.358 141.908 134.684C151.892 131.996 162.303 133.361 171.206 138.524L186.524 147.399C189.766 145.322 193.151 143.388 196.65 141.596V123.818C196.636 102.599 213.916 85.333 235.135 85.333H276.877C298.097 85.333 315.363 102.599 315.363 123.818V141.582C318.861 143.374 322.246 145.322 325.489 147.399L340.82 138.51C349.724 133.347 360.092 131.982 370.104 134.67C380.017 137.344 388.294 143.701 393.4 152.59L414.264 188.743C424.803 207.146 418.502 230.698 400.227 241.294L384.838 250.183C384.924 252.131 384.952 254.051 384.952 255.985C384.952 257.92 384.924 259.84 384.838 261.774L400.227 270.677C418.502 281.273 424.817 304.825 414.278 323.185C414.278 323.2 414.278 323.2 414.264 323.214L393.386 359.395C388.323 368.256 380.045 374.613 370.118 377.301C360.148 379.961 349.752 378.624 340.82 373.447L325.489 364.572C322.232 366.649 318.861 368.597 315.363 370.389V388.138C315.363 409.386 298.097 426.666 276.863 426.666V426.666ZM186.993 341.333C189.212 341.333 191.43 342.03 193.293 343.409C198.854 347.477 204.998 351.018 211.597 353.92C215.452 355.626 217.955 359.466 217.955 363.69V388.181C217.955 397.653 225.649 405.347 235.121 405.347H276.863C286.321 405.347 294.015 397.653 294.015 388.181V363.69C294.015 359.466 296.518 355.641 300.372 353.92C306.957 351.018 313.116 347.477 318.691 343.395C322.104 340.906 326.655 340.665 330.339 342.769L351.487 355.001C355.455 357.305 360.077 357.93 364.543 356.707C368.952 355.527 372.593 352.711 374.868 348.771L395.747 312.59C400.44 304.384 397.652 293.873 389.503 289.166L368.355 276.921C364.7 274.801 362.652 270.734 363.092 266.553C363.462 263.04 363.59 259.527 363.59 256.014C363.59 252.487 363.462 248.974 363.092 245.461C362.652 241.265 364.714 237.198 368.355 235.093L389.503 222.862C397.652 218.154 400.454 207.63 395.747 199.424L374.883 163.271C372.607 159.317 368.938 156.487 364.529 155.306C360.12 154.126 355.441 154.709 351.487 157.013L330.353 169.244C326.669 171.335 322.104 171.121 318.705 168.604C313.187 164.565 307.014 161.009 300.372 158.065C296.518 156.359 294.029 152.533 294.029 148.309V123.818C294.029 114.361 286.335 106.666 276.877 106.666H235.135C225.663 106.666 217.969 114.361 217.969 123.818V148.309C217.969 152.533 215.48 156.345 211.626 158.065C204.97 161.024 198.812 164.565 193.322 168.604C189.894 171.136 185.329 171.349 181.66 169.244L160.511 156.999C156.557 154.709 151.892 154.097 147.455 155.292C143.032 156.473 139.377 159.289 137.116 163.228L116.237 199.438C111.558 207.616 114.346 218.14 122.495 222.848L143.644 235.079C147.284 237.184 149.347 241.265 148.906 245.447C148.564 248.604 148.564 263.395 148.906 266.538C149.347 270.734 147.299 274.787 143.644 276.906L122.495 289.152C114.346 293.859 111.53 304.369 116.252 312.576L137.101 348.729C139.363 352.682 143.032 355.513 147.441 356.693C151.921 357.873 156.543 357.276 160.511 354.986L181.66 342.755C183.309 341.817 185.158 341.333 186.993 341.333V341.333Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M255.999 341.334C208.938 341.334 170.666 303.062 170.666 256C170.666 208.939 208.938 170.667 255.999 170.667C303.061 170.667 341.333 208.939 341.333 256C341.333 303.062 303.046 341.334 255.999 341.334ZM255.999 192C220.714 192 191.999 220.715 191.999 256C191.999 291.286 220.714 320 255.999 320C291.285 320 319.999 291.286 319.999 256C319.999 220.715 291.285 192 255.999 192Z"
+																			fill="#3639A4"></path>
+																		<path
+																			d="M273.338 288.441L248.449 263.552C246.458 261.546 245.334 258.844 245.334 256V216.889H266.667V251.577L288.427 273.337L273.338 288.441Z"
+																			fill="#3639A4"></path>
+																	</svg>
+																</div>
+																<div class="ot-icon-box__content">
+																	<h5 class="icon-box-title"><a href="#">DID</a></h5>
+																	<div class="icon-box-des">Make sure you only speak
+																		to top-quality leads. Don't waste time on busy
+																		lines.</div>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-50eed44 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="50eed44" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-default">
+											<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ecf3448 ot-flex-column-vertical"
+												data-id="ecf3448" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-bbdcf99 elementor-align-center elementor-widget elementor-widget-ibutton"
+														data-id="bbdcf99" data-element_type="widget"
+														data-widget_type="ibutton.default">
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-44fbb5f elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="44fbb5f" data-element_type="section"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-background-overlay"></div>
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-29f12db ot-flex-column-vertical"
+								data-id="29f12db" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-4c85e99 ssub-yes elementor-widget elementor-widget-iheading"
+										data-id="4c85e99" data-element_type="widget"
+										data-widget_type="iheading.default">
+										<div class="elementor-widget-container">
+											<div class="ot-heading">
+												<span class="ot-heading__sub">What we do</span>
+												<h2 class="ot-heading__title">How We Help Your Business Grow</h2>
+											</div>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-ea2f7c2 elementor-widget elementor-widget-text-editor"
+										data-id="ea2f7c2" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<p>Our client base represents a wide range of industries that have different
+												needs and challenges. Learn more about our customized solutions.</p>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-1d876ee elementor-widget elementor-widget-text-editor"
+										data-id="1d876ee" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<p>We help call centers boost KPIs, make better insight-driven decisions.
+											</p>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-8736e11 elementor-widget elementor-widget-text-editor"
+										data-id="8736e11" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<span style="color: #FF6947;"><a style="color: #FF6947;"
+													href="https://demo.oceanthemes.site/progrisaas/contacts/">See All
+													Services &amp; Approach</a></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-aef1e38 ot-column-items-center ot-flex-column-vertical"
+								data-id="aef1e38" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-203d30d elementor-widget elementor-widget-heading"
+										data-id="203d30d" data-element_type="widget" data-widget_type="heading.default">
+										<div class="elementor-widget-container">
+											<h2 class="elementor-heading-title elementor-size-default">Here’s What We
+												Can Help You:</h2>
+										</div>
+									</div>
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-17d8f9d elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="17d8f9d" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-default">
+											<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-fd64f42 ot-flex-column-vertical"
+												data-id="fd64f42" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-c0042c5 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="c0042c5" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			xmlns:xlink="http://www.w3.org/1999/xlink"
+																			x="0px" y="0px"
+																			viewBox="0 0 341.333 341.333"
+																			style="enable-background:new 0 0 341.333 341.333;"
+																			xml:space="preserve">
+																			<g>
+																				<g>
+																					<path
+																						d="M170.667,0C76.41,0,0,76.41,0,170.667s76.41,170.667,170.667,170.667s170.667-76.41,170.667-170.667S264.923,0,170.667,0z     M170.667,298.667c-70.692,0-128-57.308-128-128s57.308-128,128-128s128,57.308,128,128S241.359,298.667,170.667,298.667z">
+																					</path>
+																				</g>
+																			</g>
+																		</svg> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h3 class="elementor-icon-box-title">
+																		<span>
+																		</span>
+																	</h3>
+																	<p class="elementor-icon-box-description">
+																		User Experience<br> User Interface<br> User Flow
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-846934c elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="846934c" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			xmlns:xlink="http://www.w3.org/1999/xlink"
+																			x="0px" y="0px"
+																			viewBox="0 0 341.333 341.333"
+																			style="enable-background:new 0 0 341.333 341.333;"
+																			xml:space="preserve">
+																			<g>
+																				<g>
+																					<path
+																						d="M170.667,0C76.41,0,0,76.41,0,170.667s76.41,170.667,170.667,170.667s170.667-76.41,170.667-170.667S264.923,0,170.667,0z     M170.667,298.667c-70.692,0-128-57.308-128-128s57.308-128,128-128s128,57.308,128,128S241.359,298.667,170.667,298.667z">
+																					</path>
+																				</g>
+																			</g>
+																		</svg> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h3 class="elementor-icon-box-title">
+																		<span>
+																		</span>
+																	</h3>
+																	<p class="elementor-icon-box-description">
+																		Prototype<br> Icon Desing<br> Interface
+																		Animation </p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5fb8a00 ot-flex-column-vertical"
+												data-id="5fb8a00" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-d5f4ba1 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="d5f4ba1" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			xmlns:xlink="http://www.w3.org/1999/xlink"
+																			x="0px" y="0px"
+																			viewBox="0 0 341.333 341.333"
+																			style="enable-background:new 0 0 341.333 341.333;"
+																			xml:space="preserve">
+																			<g>
+																				<g>
+																					<path
+																						d="M170.667,0C76.41,0,0,76.41,0,170.667s76.41,170.667,170.667,170.667s170.667-76.41,170.667-170.667S264.923,0,170.667,0z     M170.667,298.667c-70.692,0-128-57.308-128-128s57.308-128,128-128s128,57.308,128,128S241.359,298.667,170.667,298.667z">
+																					</path>
+																				</g>
+																			</g>
+																		</svg> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h3 class="elementor-icon-box-title">
+																		<span>
+																		</span>
+																	</h3>
+																	<p class="elementor-icon-box-description">
+																		User Research<br> Usability Testing<br>
+																		Wireframe </p>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-e396159 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box"
+														data-id="e396159" data-element_type="widget"
+														data-widget_type="icon-box.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-icon-box-wrapper">
+																<div class="elementor-icon-box-icon">
+																	<span class="elementor-icon elementor-animation-">
+																		<svg xmlns="http://www.w3.org/2000/svg"
+																			xmlns:xlink="http://www.w3.org/1999/xlink"
+																			x="0px" y="0px"
+																			viewBox="0 0 341.333 341.333"
+																			style="enable-background:new 0 0 341.333 341.333;"
+																			xml:space="preserve">
+																			<g>
+																				<g>
+																					<path
+																						d="M170.667,0C76.41,0,0,76.41,0,170.667s76.41,170.667,170.667,170.667s170.667-76.41,170.667-170.667S264.923,0,170.667,0z     M170.667,298.667c-70.692,0-128-57.308-128-128s57.308-128,128-128s128,57.308,128,128S241.359,298.667,170.667,298.667z">
+																					</path>
+																				</g>
+																			</g>
+																		</svg> </span>
+																</div>
+																<div class="elementor-icon-box-content">
+																	<h3 class="elementor-icon-box-title">
+																		<span>
+																		</span>
+																	</h3>
+																	<p class="elementor-icon-box-description">
+																		Creative &amp; Art Director<br> Design
+																		System<br> SEO Marketing </p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-c17a452 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="c17a452" data-element_type="section" id="features"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-background-overlay"></div>
+						<div class="elementor-container elementor-column-gap-default">
+
+							<div class="elementor-container elementor-column-gap-default">
+								<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-504bdbf ot-flex-column-vertical"
+									data-id="504bdbf" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<section
+											class="elementor-section elementor-inner-section elementor-element elementor-element-7052856 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+											data-id="7052856" data-element_type="section">
+											<div class="elementor-container elementor-column-gap-default">
+												<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-87e8a14 ot-flex-column-vertical"
+													data-id="87e8a14" data-element_type="column">
+													<div class="elementor-widget-wrap">
+													</div>
+												</div>
+												<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-cf82ef5 ot-flex-column-vertical"
+													data-id="cf82ef5" data-element_type="column">
+													<div class="elementor-widget-wrap elementor-element-populated">
+														<div class="elementor-element elementor-element-8245118 ssub-yes elementor-widget elementor-widget-iheading"
+															data-id="8245118" data-element_type="widget"
+															data-widget_type="iheading.default">
+															<div class="elementor-widget-container">
+																<div class="ot-heading">
+																	<span class="ot-heading__sub"> features</span>
+																	<h2 class="ot-heading__title"
+																		style="color: white!important;">Key Features
+																	</h2>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-element elementor-element-dccee90 elementor-widget elementor-widget-text-editor"
+															data-id="dccee90" data-element_type="widget"
+															data-widget_type="text-editor.default">
+															<div class="elementor-widget-container">
+
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ebe8ce3 ot-flex-column-vertical"
+													data-id="ebe8ce3" data-element_type="column">
+													<div class="elementor-widget-wrap">
+													</div>
+												</div>
+											</div>
+										</section>
+										<section
+											class="elementor-section elementor-inner-section elementor-element elementor-element-03b1cac elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+											data-id="03b1cac" data-element_type="section">
+											<div class="elementor-container elementor-column-gap-default">
+												<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ca801a2 ot-flex-column-vertical"
+													data-id="ca801a2" data-element_type="column">
+													<div class="elementor-widget-wrap elementor-element-populated">
+														<div class="elementor-element elementor-element-0220e38 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+															data-id="0220e38" data-element_type="widget"
+															data-widget_type="icon-list.default">
+															<div class="elementor-widget-container"> <img
+																	src="assets/images/img-1_0.png" alt="">
+
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-0e00038 ot-flex-column-vertical"
+													data-id="0e00038" data-element_type="column">
+													<div class="elementor-widget-wrap elementor-element-populated">
+														<div class="elementor-element elementor-element-4c8c5a7 elementor-widget elementor-widget-heading"
+															data-id="4c8c5a7" data-element_type="widget"
+															data-widget_type="heading.default">
+															<div class="elementor-widget-container">
+																<h3 class="elementor-heading-title elementor-size-default"
+																	style="color: white!important;">How We Help Your
+																	Business Grow</h3>
+															</div>
+														</div>
+														<div class="elementor-element elementor-element-923820a elementor-widget elementor-widget-text-editor"
+															data-id="923820a" data-element_type="widget"
+															data-widget_type="text-editor.default">
+															<div class="elementor-widget-container">
+																<p style="color: white!important;">Intelligent campaigns
+																	optimize your call center efficiently by automating
+																	contacts &amp; call flows, making sure that
+																	high-opportunity conversations are the only ones you
+																	will be having.</p>
+															</div>
+														</div>
+														<div class="elementor-element elementor-element-05159bb elementor-widget__width-auto elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+															data-id="05159bb" data-element_type="widget"
+															data-widget_type="icon-list.default">
+															<div class="elementor-widget-container">
+																<ul class="elementor-icon-list-items">
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Flexible
+																			call strategy </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span
+																			class="elementor-icon-list-text">Predictive
+																			dialing </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Inbound
+																			return calls </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Remember
+																			all callbacks </span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="elementor-element elementor-element-22ee04c elementor-widget__width-auto elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+															data-id="22ee04c" data-element_type="widget"
+															data-widget_type="icon-list.default">
+															<div class="elementor-widget-container">
+																<ul class="elementor-icon-list-items">
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Complete,
+																			yet simple lead </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Compliant
+																			call recording </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span
+																			class="elementor-icon-list-text">Integrated
+																			calendars </span>
+																	</li>
+																	<li class="elementor-icon-list-item">
+																		<span class="elementor-icon-list-icon">
+																			<i aria-hidden="true"
+																				class="fas fa-check"></i> </span>
+																		<span class="elementor-icon-list-text">Automatic
+																			email &amp; SMS</span>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<div class="elementor-element elementor-element-7c5cafc elementor-widget elementor-widget-text-editor"
+															data-id="7c5cafc" data-element_type="widget"
+															data-widget_type="text-editor.default">
+															<div class="elementor-widget-container">
+																<p><span style="color: #ff6947;"><a style="color: #fff;"
+																			href="#">See All Services &amp;
+																			Approach</a></span></p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-b3b8a74 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="b3b8a74" data-element_type="section" data-settings="{"
+						style="background-color: white!important;" id="pricing">
+
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1ddd1b ot-flex-column-vertical"
+								data-id="f1ddd1b" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-2b645cd ssub-yes elementor-widget elementor-widget-iheading"
+										data-id="2b645cd" data-element_type="widget"
+										data-widget_type="iheading.default">
+										<div class="elementor-widget-container">
+											<div class="ot-heading">
+												<h2 class="ot-heading__title" style="color: #565bb8!important;">Pricing
+													List</h2>
+											</div>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-569f920 elementor-widget elementor-widget-text-editor"
+										data-id="569f920" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<p style="text-align: center; color: #565bb8!important">We’ll be happy to
+												discuss options how to set
+												up your account just right.</p>
+										</div>
+									</div>
+
+									<div class="elementor-element elementor-element-e12d2dc ot-image-animation3 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="e12d2dc" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-dade699 ot-image-animation1 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="dade699" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i1.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cblue.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-4526b52 ot-image-animation1 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="4526b52" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cred.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-a466b44 ot-image-animation2 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="a466b44" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elementor-element elementor-element-2915b39 elementor-widget elementor-widget-elementskit-tab"
+							data-id="2915b39" data-element_type="widget"
+							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+							data-widget_type="elementskit-tab.default">
+							<div class="elementor-widget-container">
+								<div class="ekit-wid-con">
+									<div class="elementkit-tab-wraper   elementskit-fitcontent-tab ">
+
+										<div class="tab-content elementkit-tab-content" style="
+    margin-top: 100px!important;
+">
+											<div class="tab-pane elementkit-tab-pane elementor-repeater-item-4213e78 active show"
+												id="content-4213e7861eeb4f543f5b" role="tabpanel"
+												aria-labelledby="content-4213e7861eeb4f543f5b-tab">
+												<div class="animated fadeIn">
+													<div class="widgetarea_warper widgetarea_warper_editable"
+														data-elementskit-widgetarea-key="2915b39"
+														data-elementskit-widgetarea-index="1">
+
+														<div class="elementor-widget-container">
+															<div data-elementor-type="wp-post" data-elementor-id="1914"
+																class="elementor elementor-1914"
+																data-elementor-settings="[]">
+																<div class="elementor-inner">
+																	<div class="elementor-section-wrap">
+																		<section data-element_type="section"
+																			data-id="9d1e963"
+																			class="elementor-section elementor-top-section elementor-element elementor-element-9d1e963 elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+																			<div class="elementor-container elementor-column-gap-default"
+																				style="
+    margin-top: -190px;
+">
+																				<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1ddd1b ot-flex-column-vertical"
+																					data-id="f1ddd1b"
+																					data-element_type="column">
+																					<div
+																						class="elementor-widget-wrap elementor-element-populated">
+
+
+																						<div class="elementor-element elementor-element-2915b39 elementor-widget elementor-widget-elementskit-tab"
+																							data-id="2915b39"
+																							data-element_type="widget"
+																							data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}"
+																							data-widget_type="elementskit-tab.default">
+																							<div
+																								class="elementor-widget-container">
+																								<div
+																									class="ekit-wid-con">
+																									<div
+																										class="elementkit-tab-wraper   elementskit-fitcontent-tab ">
+
+																										<div class="tab-content elementkit-tab-content"
+																											style="
+    margin-top: 100px!important;
+">
+																											<section
+																												class="elementor-section elementor-inner-section elementor-element elementor-element-2035c8a elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+																												data-id="2035c8a"
+																												data-element_type="section">
+																												<div
+																													class="elementor-container elementor-column-gap-extended">
+																													<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-99f8101"
+																														data-id="99f8101"
+																														data-element_type="column">
+																														<div
+																															class="elementor-widget-wrap elementor-element-populated prices">
+																															<div class="elementor-element elementor-element-83bd587 elementor-widget elementor-widget-ipricingtable"
+																																data-id="83bd587"
+																																data-element_type="widget"
+																																data-widget_type="ipricingtable.default">
+																																<div
+																																	class="elementor-widget-container">
+
+																																	<div
+																																		class="ot-pricing-table --second-color">
+																																		<div
+																																			class="ot-pricing-table__header">
+																																			<h3
+																																				class="ot-pricing-table__title">
+																																				Digital
+																																			</h3>
+																																			<span
+																																				class="ot-pricing-table__subtitle">The
+																																				easy,
+																																				safe
+																																				way
+																																				to
+																																				manage
+																																				online
+																																				spending
+																																				at
+																																				work</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__price">
+																																			<div
+																																				class="ot-pricing-table__price-main">
+																																				$15
+																																				<span
+																																					class="ot-pricing-table__period">/m</span>
+																																			</div>
+																																			<span
+																																				class="ot-pricing-table__price-extra">$159/year</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__features-list">
+																																			<ul>
+																																				<li>Easy
+																																					to
+																																					use
+																																					app
+																																				</li>
+																																				<li>Widget
+																																					generator
+																																				</li>
+																																			</ul>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__footer">
+																																			<a href="#"
+																																				class="octf-btn octf-btn-second --price-link-trial">Start
+																																				a
+																																				Free
+																																				30-day
+																																				Trial</a>
+																																			<a href="#"
+																																				class="octf-price-link-detail">Learn
+																																				More</a>
+																																		</div>
+																																	</div>
+
+																																</div>
+																															</div>
+																														</div>
+																													</div>
+																													<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-98311f0 ot-flex-column-vertical"
+																														data-id="98311f0"
+																														data-element_type="column"
+																														data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+																														<div class="elementor-widget-wrap elementor-element-populated prices"
+																															style="
+    background-color: #FFF0ED;
+">
+																															<div class="elementor-element elementor-element-91908b1 elementor-widget elementor-widget-ipricingtable"
+																																data-id="91908b1"
+																																data-element_type="widget"
+																																data-widget_type="ipricingtable.default">
+																																<div
+																																	class="elementor-widget-container">
+
+																																	<div
+																																		class="ot-pricing-table --main-color">
+																																		<div
+																																			class="ot-pricing-table__header">
+																																			<h3
+																																				class="ot-pricing-table__title">
+																																				Suite
+																																			</h3>
+																																			<span
+																																				class="ot-pricing-table__subtitle">The
+																																				complete
+																																				spend
+																																				management
+																																				solution
+																																				for
+																																				all
+																																				your
+																																				spending</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__price">
+																																			<div
+																																				class="ot-pricing-table__price-main">
+																																				$59
+																																				<span
+																																					class="ot-pricing-table__period">/m</span>
+																																			</div>
+																																			<span
+																																				class="ot-pricing-table__price-extra">$159/year</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__features-list">
+																																			<ul>
+																																				<li>Easy
+																																					to
+																																					use
+																																					app
+																																				</li>
+																																				<li>Widget
+																																					generator
+																																				</li>
+																																				<li>Neat
+																																					dashboard
+																																				</li>
+																																				<li>Helpful
+																																					support
+																																				</li>
+																																			</ul>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__footer">
+																																			<a href="#"
+																																				class="octf-btn --price-link-trial">Start
+																																				a
+																																				Free
+																																				30-day
+																																				Trial</a>
+																																			<a href="#"
+																																				class="octf-price-link-detail">Learn
+																																				More</a>
+																																		</div>
+																																	</div>
+
+																																</div>
+																															</div>
+																														</div>
+																													</div>
+																													<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-b6bea37"
+																														data-id="b6bea37"
+																														data-element_type="column">
+																														<div
+																															class="elementor-widget-wrap elementor-element-populated prices">
+																															<div class="elementor-element elementor-element-e10ee98 elementor-widget elementor-widget-ipricingtable"
+																																data-id="e10ee98"
+																																data-element_type="widget"
+																																data-widget_type="ipricingtable.default">
+																																<div
+																																	class="elementor-widget-container">
+
+																																	<div
+																																		class="ot-pricing-table --third-color">
+																																		<div
+																																			class="ot-pricing-table__header">
+																																			<h3
+																																				class="ot-pricing-table__title">
+																																				Medium
+																																			</h3>
+																																			<span
+																																				class="ot-pricing-table__subtitle">The
+																																				easy,
+																																				safe
+																																				way
+																																				to
+																																				manage
+																																				online
+																																				spending
+																																				at
+																																				work</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__price">
+																																			<div
+																																				class="ot-pricing-table__price-main">
+																																				$25
+																																				<span
+																																					class="ot-pricing-table__period">/m</span>
+																																			</div>
+																																			<span
+																																				class="ot-pricing-table__price-extra">$159/year</span>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__features-list">
+																																			<ul>
+																																				<li>Easy
+																																					to
+																																					use
+																																					app
+																																				</li>
+																																				<li>Widget
+																																					generator
+																																				</li>
+																																				<li>Neat
+																																					dashboard
+																																				</li>
+																																			</ul>
+																																		</div>
+																																		<div
+																																			class="ot-pricing-table__footer">
+																																			<a href="#"
+																																				class="octf-btn octf-btn-third --price-link-trial">Start
+																																				a
+																																				Free
+																																				30-day
+																																				Trial</a>
+																																			<a href="#"
+																																				class="octf-price-link-detail">Learn
+																																				More</a>
+																																		</div>
+																																	</div>
+
+																																</div>
+																															</div>
+																														</div>
+																													</div>
+																												</div>
+																											</section>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+
+
+
+
+
+																					</div>
+																				</div>
+																			</div>
+																		</section>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-b3b8a74 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="b3b8a74" data-element_type="section"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-background-overlay"></div>
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f1ddd1b ot-flex-column-vertical"
+								data-id="f1ddd1b" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<div class="elementor-element elementor-element-2b645cd ssub-yes elementor-widget elementor-widget-iheading"
+										data-id="2b645cd" data-element_type="widget"
+										data-widget_type="iheading.default">
+										<div class="elementor-widget-container">
+											<div class="ot-heading">
+												<span class="ot-heading__sub">Let’s Work together </span>
+												<h2 class="ot-heading__title">Just Try It Now! You’ll Fall in Love </h2>
+											</div>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-569f920 elementor-widget elementor-widget-text-editor"
+										data-id="569f920" data-element_type="widget"
+										data-widget_type="text-editor.default">
+										<div class="elementor-widget-container">
+											<p style="text-align: center;">We’ll be happy to discuss options how to set
+												up your account just right.</p>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-812da3d elementor-align-center elementor-widget elementor-widget-ibutton"
+										data-id="812da3d" data-element_type="widget" data-widget_type="ibutton.default">
+										<div class="elementor-widget-container">
+											<div class="ot-button">
+												<a href="https://progrisaas.archiwp.com/contacts/"
+													class="octf-btn octf-btn-main">Try It Now</a>
+											</div>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-e12d2dc ot-image-animation3 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="e12d2dc" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-dade699 ot-image-animation1 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="dade699" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i1.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cblue.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-4526b52 ot-image-animation1 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="4526b52" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cred.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-a466b44 ot-image-animation2 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-image"
+										data-id="a466b44" data-element_type="widget"
+										data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+										data-widget_type="image.default">
+										<div class="elementor-widget-container">
+											<img width="20" height="20"
+												src="https://i0.wp.com/progrisaas.archiwp.com/wp-content/uploads/2021/06/home12-cwhite.png?fit=20%2C20&amp;ssl=1"
+												class="attachment-full size-full" alt="" loading="lazy">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+
+		</div><!-- #content -->
+		<footer id="site-footer" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" style="
+    margin-top: 70px !important;
+">
+			<div data-elementor-type="wp-post" data-elementor-id="9297" class="elementor elementor-9297"
+				data-elementor-settings="[]">
+				<div class="elementor-section-wrap">
+					<section
+						class="elementor-section elementor-top-section elementor-element elementor-element-f24a0eb elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+						data-id="f24a0eb" data-element_type="section"
+						data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-78a56b2 ot-flex-column-vertical"
+								data-id="78a56b2" data-element_type="column">
+								<div class="elementor-widget-wrap elementor-element-populated">
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-4fcea98 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="4fcea98" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-extended">
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-2486562 ot-flex-column-vertical"
+												data-id="2486562" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-3fa186a elementor-widget elementor-widget-heading"
+														data-id="3fa186a" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h5 class="elementor-heading-title elementor-size-default">
+																Contacts</h5>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-7c9a6ac elementor-widget elementor-widget-text-editor"
+														data-id="7c9a6ac" data-element_type="widget"
+														data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p><span style="color: #ff885e;">+ 123-456-7890<br>+
+																	123-456-7890</span></p>
+															<p>Mon – Sun: 10am – 10pm</p>
+															<p>670 Lafayette Ave, Brooklyn,<br>NY 11216</p>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-2af642d elementor-widget elementor-widget-ititlelink"
+														data-id="2af642d" data-element_type="widget"
+														data-widget_type="ititlelink.default">
+														<div class="elementor-widget-container">
+															<div class="ot-title-link">
+																<h5><a href="mailto:name@example.com"
+																		class="title-link">name@example.com</a></h5>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-95b6fb8 ot-flex-column-vertical"
+												data-id="95b6fb8" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-81a93a7 elementor-widget elementor-widget-heading"
+														data-id="81a93a7" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h5 class="elementor-heading-title elementor-size-default">
+																Company</h5>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-e18ebde elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+														data-id="e18ebde" data-element_type="widget"
+														data-widget_type="icon-list.default">
+														<div class="elementor-widget-container">
+															<ul class="elementor-icon-list-items">
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Home</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Services</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Features</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Pricing</span>
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-8001e5c ot-flex-column-vertical"
+												data-id="8001e5c" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-e14b030 elementor-widget elementor-widget-heading"
+														data-id="e14b030" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h5 class="elementor-heading-title elementor-size-default">
+																Resources</h5>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-38b498b elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+														data-id="38b498b" data-element_type="widget"
+														data-widget_type="icon-list.default">
+														<div class="elementor-widget-container">
+															<ul class="elementor-icon-list-items">
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Demos</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Webinars</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Docs</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Community</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Support</span>
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-1661119 ot-flex-column-vertical"
+												data-id="1661119" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-7de4c4a elementor-widget elementor-widget-heading"
+														data-id="7de4c4a" data-element_type="widget"
+														data-widget_type="heading.default">
+														<div class="elementor-widget-container">
+															<h5 class="elementor-heading-title elementor-size-default">
+																Follow Us</h5>
+														</div>
+													</div>
+													<div class="elementor-element elementor-element-d5fa7d7 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+														data-id="d5fa7d7" data-element_type="widget"
+														data-widget_type="icon-list.default">
+														<div class="elementor-widget-container">
+															<ul class="elementor-icon-list-items">
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Facebook</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Twitter</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">Instagram</span>
+																	</a>
+																</li>
+																<li class="elementor-icon-list-item">
+																	<a href="#">
+
+																		<span
+																			class="elementor-icon-list-text">LinkedIn</span>
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+									<section
+										class="elementor-section elementor-inner-section elementor-element elementor-element-23c91d1 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+										data-id="23c91d1" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-extended">
+											<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6833cb3 ot-flex-column-vertical"
+												data-id="6833cb3" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-ddb7992 elementor-widget elementor-widget-text-editor"
+														data-id="ddb7992" data-element_type="widget"
+														data-widget_type="text-editor.default">
+														<div class="elementor-widget-container">
+															<p>© 2021 Diamond Expert. All Rights Reserved.
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b8df781 ot-flex-column-vertical"
+												data-id="b8df781" data-element_type="column">
+												<div class="elementor-widget-wrap elementor-element-populated">
+													<div class="elementor-element elementor-element-b33fcda elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+														data-id="b33fcda" data-element_type="widget"
+														data-widget_type="icon-list.default">
+														<div class="elementor-widget-container">
+															<ul
+																class="elementor-icon-list-items elementor-inline-items">
+																<li
+																	class="elementor-icon-list-item elementor-inline-item">
+																	<a href="#">
+
+																		<span class="elementor-icon-list-text">Privacy
+																			Policy</span>
+																	</a>
+																</li>
+																<li
+																	class="elementor-icon-list-item elementor-inline-item">
+																	<a href="#">
+
+																		<span class="elementor-icon-list-text">Terms of
+																			Use</span>
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</footer>
+	</div><!-- #page -->
+
+
+	<a id="back-to-top" href="#" class="show"><i class="ot-flaticon-up-arrow"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
